@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
 ![](https://img.shields.io/badge/version-1.3.0-brightgreen)
 
-[My Blog with ✨Theme Diary✨](https://amazingrise.net/) -
+[My Blog with ✨Theme Diary✨](https://risehere.net/) -
 [Intro Video](https://www.bilibili.com/video/av84273002) -
 [Progress](https://github.com/AmazingRise/hugo-theme-diary/projects/) -
 [Wiki](https://github.com/amazingrise/hugo-theme-diary/wiki)
@@ -90,7 +90,7 @@ See [/exampleSite/config.toml](https://github.com/AmazingRise/hugo-theme-diary/b
   * [Table Of Contents](https://github.com/AmazingRise/hugo-theme-diary/wiki/Table-Of-Contents)
   * [Enable/Disable Comment](https://github.com/AmazingRise/hugo-theme-diary/wiki/Comment-Area)
 - 3rd. party services
-  * [Comment Services](https://github.com/AmazingRise/hugo-theme-diary/wiki/Comment-Area)
+  * [Comment Services](https://github.com/AmazingRise/hugo-theme-diary/wiki/Comment)
   * [Google Analytics](https://github.com/AmazingRise/hugo-theme-diary/wiki/Customization#add-google-analytics)
   * [Google Site Verification](https://github.com/AmazingRise/hugo-theme-diary/wiki/Customization#add-google-site-verification)
   * [Google Search Intergration](https://github.com/AmazingRise/hugo-theme-diary/wiki/Customization#add-google-search-box-on-your-site)
