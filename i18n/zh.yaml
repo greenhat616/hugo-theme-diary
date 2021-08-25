@@ -5,9 +5,9 @@
 - id: format_date_tosec
   translation: '{{ .Format "2006-01-02 15:04" }}'
 - id: next_link
-  translation: '下回'
+  translation: '下一篇 >'
 - id: prev_link
-  translation: '上回'
+  translation: '< 上一篇'
 - id: no_newer_posts
   translation: 已经到头啦。
 - id: no_older_posts
@@ -17,12 +17,20 @@
 - id: comments_activate_js
   translation: 请开启 JavaScript 以便使用评论服务。
 - id: hugo_theme
-  translation: Hugo Theme
+  translation: Theme
 - id: ported_from
-  translation: 移植自
+  translation: Original design by
 - id: by
   translation: by
 - id: draft
   translation: 草稿
 - id: toc_title
   translation: 目录
+- id: warning
+  translation: "警告"
+- id: note
+  translation: "提示"
+- id: info
+  translation: "注意"
+- id: tip
+  translation: "提示"

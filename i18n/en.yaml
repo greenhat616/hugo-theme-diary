@@ -17,9 +17,9 @@
 - id: comments_activate_js
   translation: Please activate JavaScript to view comments.
 - id: hugo_theme
-  translation: Hugo Theme
+  translation: Theme
 - id: ported_from
-  translation: Ported from
+  translation: Original design by
 - id: by
   translation: by
 - id: draft

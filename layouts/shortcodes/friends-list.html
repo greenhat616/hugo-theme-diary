@@ -1,0 +1,37 @@
+{{ $collection := $.Page.Params.friends }}
+{{ $shuffledCollection := shuffle $collection }}
+<div class="friendship">
+    <div class = "row">
+        {{ range $shuffledCollection}}
+        {{ $icon := "" }}
+        {{ if isset . "qq" }}
+        {{ $icon = delimit (slice "https://q2.qlogo.cn/headimg_dl?dst_uin="  .qq  "&spec=640") "" }}
+        {{ else if isset . "hash" }}
+        {{ $icon = delimit (slice "https://fdn.geekzu.org/avatar/"  .hash  "?d=mm&s=640") "" }}
+        {{ else if isset . "email" }}
+        {{ $icon = delimit (slice "https://fdn.geekzu.org/avatar/" (md5 .email)  "d=mm&s=640") "" }}
+        {{ else if isset . "icon" }}
+        {{ $icon = .icon }}
+        {{ else }}
+        {{ errorf "%#v" . }}
+        {{ end }}
+        <div class="col-lg-6">
+            <div class="card" data-href="{{ .href }}" id="{{ md5 .name}}" onclick="window.open(this.dataset.href, '_blank')">
+                <div class="card-body"> <!-- 妥协的解决方法 -->
+                    <img
+                            loading="lazy"
+                            class="lazyload"
+                            data-src="{{ $icon }}"
+                            data-placeholder="https://static.a632079.me/assets/images/default_icon.png"
+                            src="https://static.a632079.me/assets/images/default_icon.png"
+                            alt="{{ .name }}"
+                            onerror="this.src=this.dataset.placeholder"
+                    >
+                    <h1 title="{{ .name }}">{{ .name }}</h1>
+                    <p title="{{ .desc }}">{{ .desc }}</p>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>

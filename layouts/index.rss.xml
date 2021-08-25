@@ -14,6 +14,7 @@
     {{ end }}
     {{ range .Paginator.Pages }}
     {{ if and (.IsPage) (.Params.date) }}
+    {{ if not .Params.hidden}}
         <item>
         <title>{{ .Title }}</title>
         <link>{{ .Permalink }}</link>
@@ -22,6 +23,7 @@
         <guid>{{ .Permalink }}</guid>
         <description>{{ .Site.Title }} {{ .Permalink }} - {{- .Content | html -}} - {{ .Permalink }} - {{.Site.Copyright}}</description>
         </item>
+    {{ end }}
     {{ end }}
     {{ end }}
   </channel>

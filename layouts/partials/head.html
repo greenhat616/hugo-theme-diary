@@ -1,5 +1,5 @@
 <head>
-<title>{{.Title}}</title>
+<title>{{if eq .Title .Site.Title}}{{.Title}}{{else}}{{.Title}} - {{.Site.Title}}{{end}}</title>
 
 {{ $description := .Params.description}}
 {{if .IsHome}}
@@ -31,6 +31,32 @@
 {{ template "_internal/google_analytics.html" . }}
 {{ end }}
 
+  <!--dayjs start -->
+  <script
+          src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.4/fetch.js"
+          integrity="sha256-VpQSBEw4wr6j5/6GsK33LrAE6Eq6+/Tq3JUbcCak6XY="
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"
+          integrity="sha256-NTsR4SOm3YHfJrmrmvBtEYqfQ6jQ5yvEKMhgQe3DIl0="
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/plugin/relativeTime.js"
+          integrity="sha256-JS5r5fGB+8l8t8qJSB5d3t5lJjQA8pKh4Vw6pOTglfw="
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/locale/zh-cn.js"
+          integrity="sha256-V/Plg0c6ZYnD7rPew001CRh9I5QupASdoHzZ7zusmEk="
+          crossorigin="anonymous"
+  ></script>
+  <script>
+    dayjs.locale("zh-cn");
+    dayjs.extend(window.dayjs_plugin_relativeTime);
+  </script>
+
 <link type="text/css" rel="stylesheet" href="{{"/vendor/css/bootstrap.min.css" | relURL}}">
 <script src="{{"/vendor/js/vue.min.js" | relURL}}" ></script>
 
@@ -56,6 +82,7 @@
 {{ end }}
 
 <script src="{{"/js/loadCSS.js" | relURL}}"></script>
+<script src="{{"/js/journal.js" | relURL}}"></script>
 <script>
   loadCSS("https://fonts.googleapis.com/css?family=Fira+Mono|Material+Icons");
 </script>
@@ -79,14 +106,14 @@
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="{{"/vendor/js/md5.min.js" | relURL}}"></script>
 <script>
-  var gitalk = new Gitalk({
-  clientID: '{{ .Site.Params.Gitalk.client_id }}',
-  clientSecret: '{{ .Site.Params.Gitalk.client_secret }}',
-  repo: '{{ .Site.Params.Gitalk.repo }}',
-  owner: '{{ .Site.Params.Gitalk.owner }}',
-  admin: ['{{ .Site.Params.Gitalk.owner }}'],
-  id: md5(location.pathname),
-  distractionFreeMode: 'false'
+  const gitalk = new Gitalk({
+    clientID: '{{ .Site.Params.Gitalk.client_id }}',
+    clientSecret: '{{ .Site.Params.Gitalk.client_secret }}',
+    repo: '{{ .Site.Params.Gitalk.repo }}',
+    owner: '{{ .Site.Params.Gitalk.owner }}',
+    admin: ['{{ .Site.Params.Gitalk.owner }}'],
+    id: md5(location.pathname),
+    distractionFreeMode: 'false'
   });
   window.onload = function () {
         gitalk.render('gitalk-container')
@@ -129,5 +156,9 @@ $(
 
 <!-- head custom -->
 {{- partial "extended_head.html" . }}
+
+<script>
+  loadCSS("https://fonts.googleapis.com/css?family=Lora|Fira+Mono|Montserrat|Material+Icons|Noto+Serif+SC:400,700&display=swap");
+</script>
 
 </head>

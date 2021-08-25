@@ -1,13 +1,21 @@
-$color-accent: #1976d2;
-//$color-accent: #330000;
+@import "tools/remify";
+// $color-accent: #1976d2;
+// $color-accent: #330000;
+$color-accent: #01506f;
 $back-container-background: #fcfcfc;
 $front-container-background: #ffffff;
 
-$default-font-list: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+$default-font-list: "Lora", "Noto Serif SC", serif;
 $mono-font-list: "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro",
   monospace;
+$sans-preferred-font-list: "Montserrat", "Roboto", "Source Sans Pro",
+  "Helvetica", $default-font-list;
+
+// $default-font-list: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+// $mono-font-list: "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro",
+//   monospace;
 //$sans-preferred-font-list: "Montserrat", "Roboto", "Source Sans Pro", "Helvetica", $default-font-list;
-$sans-preferred-font-list: $default-font-list;
+// $sans-preferred-font-list: $default-font-list;
 
 $side-container-width: 25%; //280px;
 $extra-container-width: 25%;
@@ -69,7 +77,7 @@ body {
 
 * {
   color: $deep-dark-accent;
-  //line-height: 1.7em;
+  line-height: 1.7em; // TODO: 改变了什么
   word-wrap: break-word;
   box-sizing: border-box;
 }
@@ -424,10 +432,10 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  $nav-item-hover-background-alpha: 0.02;
+  $nav-item-hover-background-alpha: 0.05; // 0.02
   $nav-item-hover-indicator-alpha: 0.6;
   $nav-item-hover-color-darken: 30%;
-  $nav-item-active-background-alpha: 0.03;
+  $nav-item-active-background-alpha: 0.1; // 0.03
   $nav-item-active-color-darken: 20%;
   .nav-head {
     padding: 30px 28px 30px 20px;
@@ -439,6 +447,7 @@ a {
     .nav-title {
       font-size: $nav-title-size;
       line-height: $nav-title-size * 1.4;
+      font-weight: 600;
     }
     border-right: 2px solid transparent;
     .nav-subtitle {
@@ -635,7 +644,7 @@ a {
             }
             .post-item-title {
               font-size: $post-title-size;
-              font-weight: 500;
+              font-weight: 600; // 500
               font-style: normal;
               margin-bottom: 10px;
               line-height: 1.5em;
@@ -1086,4 +1095,48 @@ mjx-container
 
 .vcontent p {
   color: black !important;
+}
+
+// Friendship
+.friendship {
+  .card {
+    margin-bottom: 1.5rem;
+    border-radius: 0;
+  }
+  .card:hover {
+    background: rgba($color-accent, 0.05);
+    color: darken($color-accent, 30%);
+    cursor: pointer;
+  }
+  .card img {
+    transition: all 0.5s;
+  }
+  .card:hover img {
+    transform: rotate(360deg);
+  }
+  >div>div>div>div {
+    // Card Body
+    >h1 {
+      // Name
+      margin: 0 0 0 3em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    >p {
+      // Description
+      margin: 0.15em 0 0 6em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    >img {
+      // Logo Pictrue
+      border: 1px solid #dddddd;
+      border-radius: 50% !important;
+      width: 5em;
+      height: 5em;
+      float: left;
+    }
+  }
 }
