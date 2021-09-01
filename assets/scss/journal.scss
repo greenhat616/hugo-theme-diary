@@ -1101,7 +1101,7 @@ mjx-container
 .friendship {
   .card {
     margin-bottom: 1.5rem;
-    border-radius: 0;
+    border-radius: 5px;
   }
   .card:hover {
     background: rgba($color-accent, 0.05);
@@ -1116,27 +1116,57 @@ mjx-container
   }
   >div>div>div>div {
     // Card Body
-    >h1 {
-      // Name
-      margin: 0 0 0 3em;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+    .friend-sheet {
+      display: flex;
+      flex: 1;
     }
-    >p {
-      // Description
-      margin: 0.15em 0 0 6em;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+    .friend-information {
+      padding-left: 1em;
+      display: flex;
+      flex: 1;
+      justify-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 70%;
+      font-family: montserrat,roboto,source sans pro,helvetica,lora,noto serif sc,serif;
+
+      >h1 {
+        // Name
+        margin: 0 0 0 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 1.5em;
+      }
+      >p {
+        // Description
+        margin: 0 0 0 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 1.2em;
+      }
     }
-    >img {
-      // Logo Pictrue
-      border: 1px solid #dddddd;
-      border-radius: 50% !important;
-      width: 5em;
-      height: 5em;
-      float: left;
+    .friend-avatar{
+      width: 80px;
+      height: 80px;
+      >img {
+        // Logo Pictrue
+        border: 1px solid #dddddd;
+        border-radius: 50% !important;
+        width: 80px;
+        height: 80px;
+        max-width: 80px;
+        min-width: 80px;
+      }
     }
   }
+}
+
+
+.vuser img {
+  transition: all 0.5s;
+}
+.vuser img {
+  transform: rotate(360deg);
 }

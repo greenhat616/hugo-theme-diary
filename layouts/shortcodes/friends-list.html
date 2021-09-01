@@ -18,17 +18,23 @@
         <div class="col-lg-6">
             <div class="card" data-href="{{ .href }}" id="{{ md5 .name}}" onclick="window.open(this.dataset.href, '_blank')">
                 <div class="card-body"> <!-- 妥协的解决方法 -->
-                    <img
-                            loading="lazy"
-                            class="lazyload"
-                            data-src="{{ $icon }}"
-                            data-placeholder="https://static.a632079.me/assets/images/default_icon.png"
-                            src="https://static.a632079.me/assets/images/default_icon.png"
-                            alt="{{ .name }}"
-                            onerror="this.src=this.dataset.placeholder"
-                    >
-                    <h1 title="{{ .name }}">{{ .name }}</h1>
-                    <p title="{{ .desc }}">{{ .desc }}</p>
+                    <div class="friend-sheet">
+                        <div class="friend-avatar">
+                            <img
+                                loading="lazy"
+                                class="lazyload"
+                                data-src="{{ $icon }}"
+                                data-placeholder="https://static.a632079.me/assets/images/default_icon.png"
+                                src="https://static.a632079.me/assets/images/default_icon.png"
+                                alt="{{ .name }}"
+                                onerror="this.src=this.dataset.placeholder"
+                            >
+                        </div>
+                        <div class="friend-information">
+                            <h1 title="{{ .name }}">{{ .name }}</h1>
+                            <p title="{{ .desc }}">{{ .desc }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
