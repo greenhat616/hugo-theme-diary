@@ -1163,10 +1163,13 @@ mjx-container
   }
 }
 
-
+#waline
 .vuser img {
   transition: all 0.5s;
 }
-.vuser img {
+.vuser img:hover {
   transform: rotate(360deg);
+}
+.veditor {
+  border-radius: 0 !important;
 }

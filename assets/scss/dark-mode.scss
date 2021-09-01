@@ -249,6 +249,7 @@ body.night {
     color: black !important;
   }
 
+  // friendship
   .friendship {
     .card {
       background: lighten($dark-mode-front-container-background, 5%);
@@ -257,5 +258,27 @@ body.night {
       background: lighten($dark-mode-front-container-background, 10%);
       color: lighten($color-accent, 30%);
     }
+  }
+
+  // waline
+  .vpanel {
+    background: lighten($dark-mode-front-container-background, 5%) !important;
+  }
+  .veditor, .vinput {
+    &:hover {
+      background: lighten($dark-mode-front-container-background, 10%) !important;
+    }
+    &:focus {
+      background: lighten($dark-mode-front-container-background, 5%) !important;
+    }
+  }
+  .vmeta {
+    span {
+      background: lighten($dark-mode-front-container-background, 10%) !important;
+      color: darken(#FFF, 3%);
+    }
+  }
+  .vemoji-popup.display {
+    background: lighten($dark-mode-front-container-background, 5%) !important;
   }
 }
