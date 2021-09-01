@@ -294,7 +294,16 @@ window.app = app = new Vue({
             new Waline({
                 el: '#waline',
                 path: location.pathname,
-                requiredFields: ['nick','mail'],
+                requiredMeta: ['nick','mail'],
+                uploadImage: false,
+                emoji: [
+                    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus',
+                    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo',
+                    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba',
+                    'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+                ],
+                dark: 'body.night',
+                avatarCDN: 'https://sdn.geekzu.org/avatar/',
                 serverURL: {{.Site.Params.walineServer}} ,
             });
         {{ end }}

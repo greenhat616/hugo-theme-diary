@@ -261,24 +261,30 @@ body.night {
   }
 
   // waline
-  .vpanel {
-    background: lighten($dark-mode-front-container-background, 5%) !important;
-  }
-  .veditor, .vinput {
-    &:hover {
-      background: lighten($dark-mode-front-container-background, 10%) !important;
-    }
-    &:focus {
-      background: lighten($dark-mode-front-container-background, 5%) !important;
-    }
-  }
+  /* 常规颜色 */
+  --waline-white: #000;
+  --waline-light-grey: #666;
+  --waline-dark-grey: #999;
+
+  /* 布局颜色 */
+  --waline-text-color: #888;
+  --waline-bgcolor: #353535 !important;
+  --waline-bgcolor-light: #424242 !important;
+  --waline-border-color: #333;
+  --waline-border: 1px solid var(--waline-border-color);
+  --waline-disable-bgcolor: #444;
+  --waline-disable-color: #424242 !important;
+
+  /* 特殊颜色 */
+  --waline-bq-color: #424242 !important;
+
+  /* 其他颜色 */
+  --waline-info-bgcolor: #424242 !important;
+  --waline-info-color: #666;
   .vmeta {
     span {
-      background: lighten($dark-mode-front-container-background, 10%) !important;
-      color: darken(#FFF, 3%);
+      background: #424242 !important;
+      color: darken(#fff, 20%) !important;
     }
-  }
-  .vemoji-popup.display {
-    background: lighten($dark-mode-front-container-background, 5%) !important;
   }
 }
