@@ -88,7 +88,11 @@
 <link rel="stylesheet" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen">
 {{ end }}
 <script src="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+{{ if .Site.IsServer }}
 <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.min.js"></script>
+{{ else }}
+<script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
+{{ end }}
 <script>
   loadCSS("https://fonts.loli.net/css?family=Fira+Mono|Material+Icons");
 </script>
