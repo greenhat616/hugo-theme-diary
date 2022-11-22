@@ -33,32 +33,21 @@
 
   <!--dayjs start -->
   <script
-          src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.4/fetch.js"
-          integrity="sha256-VpQSBEw4wr6j5/6GsK33LrAE6Eq6+/Tq3JUbcCak6XY="
+          src="https://cdn.staticfile.org/dayjs/1.11.6/dayjs.min.js"
           crossorigin="anonymous"
   ></script>
   <script
-          src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"
-          integrity="sha256-NTsR4SOm3YHfJrmrmvBtEYqfQ6jQ5yvEKMhgQe3DIl0="
+          src="https://cdn.staticfile.org/dayjs/1.11.6/plugin/relativeTime.js"
           crossorigin="anonymous"
   ></script>
   <script
-          src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/plugin/relativeTime.js"
-          integrity="sha256-JS5r5fGB+8l8t8qJSB5d3t5lJjQA8pKh4Vw6pOTglfw="
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/locale/zh-cn.js"
-          integrity="sha256-V/Plg0c6ZYnD7rPew001CRh9I5QupASdoHzZ7zusmEk="
+          src="https://cdn.staticfile.org/dayjs/1.11.6/locale/zh-cn.js"
           crossorigin="anonymous"
   ></script>
   <script>
     dayjs.locale("zh-cn");
     dayjs.extend(window.dayjs_plugin_relativeTime);
   </script>
-
-<link type="text/css" rel="stylesheet" href="{{"/vendor/css/bootstrap.min.css" | relURL}}">
-<script src="{{"/vendor/js/vue.min.js" | relURL}}" ></script>
 
 {{if .Site.Params.manifest}}
 <link rel="manifest" href="{{.Site.Params.manifest}}">
@@ -73,6 +62,8 @@
 <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
 {{ end }}
 
+<script src="https://cdn.staticfile.org/loadCSS/3.1.0/loadCSS.min.js"></script>
+
 <!-- For compatibility. View https://github.com/AmazingRise/hugo-theme-diary/pull/135 for details.-->
 {{- $hugoVersion := split (replaceRE ".*([0-9]+)\\.([0-9]+)\\.([0-9]+).*" "$1 $2 $3" hugo.Version) " " -}}
 {{- if and (eq (int (index $hugoVersion 0)) 0) (ge (int (index $hugoVersion 1)) 101) -}}
@@ -80,13 +71,13 @@
     {{ if and (not (.Params.disableToC) ) (.IsPage) }}
       <script src="{{"js/toc.js" | relURL}}"></script>
     {{ end }}
-    <link type="text/css" rel="stylesheet" href="{{"vendor/css/bootstrap.min.css" | relURL}}">
+    <link type="text/css" rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
 {{- else -}}
     {{- /* with leading slash */ -}}
     {{ if and (not (.Params.disableToC) ) (.IsPage) }}
       <script src="{{"/js/toc.js" | relURL}}"></script>
     {{ end }}
-    <link type="text/css" rel="stylesheet" href="{{"/vendor/css/bootstrap.min.css" | relURL}}">
+    <link type="text/css" rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
 {{- end -}}
 
 {{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
@@ -96,11 +87,10 @@
 {{ $darkmode := resources.Get "scss/dark-mode.scss" | toCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen">
 {{ end }}
-
-<script src="{{"/js/loadCSS.js" | relURL}}"></script>
-<script src="{{"/js/journal.js" | relURL}}"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.min.js"></script>
 <script>
-  loadCSS("https://fonts.googleapis.com/css?family=Fira+Mono|Material+Icons");
+  loadCSS("https://fonts.loli.net/css?family=Fira+Mono|Material+Icons");
 </script>
 
 {{ if .Site.Params.cloudflareToken }}
@@ -113,9 +103,9 @@
 {{ end }}
 
 {{ if or (.Params.enableLaTeX) (.Site.Params.enableLaTeX) }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.3/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.staticfile.org/KaTeX/0.16.3/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.staticfile.org/KaTeX/0.16.3/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {
@@ -137,8 +127,8 @@
 
 
 {{ if and ( and ( .Site.Params.enableGitalk ) ( .IsPage ) ) ( or ( not ( isset .Params "comment" ) ) ( eq .Params.comment true ) ) }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.css">
+<script src="https://cdn.staticfile.org/gitalk/1.8.0/gitalk-component.min.js"></script>
 <!-- For compatibility. View https://github.com/AmazingRise/hugo-theme-diary/pull/135 for details.-->
 {{- $hugoVersion := split (replaceRE ".*([0-9]+)\\.([0-9]+)\\.([0-9]+).*" "$1 $2 $3" hugo.Version) " " -}}
 {{- if and (eq (int (index $hugoVersion 0)) 0) (ge (int (index $hugoVersion 1)) 101) -}}
@@ -170,26 +160,27 @@
 {{ end }}
 
 {{ if and (.Site.Params.disqusShortname) (.IsPage) }}
-<script src="https://cdn.jsdelivr.net/npm/vue-disqus@3/dist/vue-disqus.js"></script>
+<script src="https://cdn.staticfile.org/vue-disqus/5.1.0/vue-disqus.iife.min.js"></script>
 {{ end }}
 
 {{ if and (.Site.Params.enableTwikoo) (.IsPage) }}
-<script src="https://cdn.jsdelivr.net/npm/twikoo@1.5.3/dist/twikoo.all.min.js"></script>
+<script src="https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"></script>
 {{ end }}
 
 {{ if and (.Site.Params.walineServer) (.IsPage) }}
-<script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
-  />
+<link
+rel="stylesheet"
+href="https://cdn.staticfile.org/waline/2.14.1/waline.min.css"
+/>
+<script src="https://cdn.staticfile.org/waline/2.14.1/waline.min.js"></script>
+
 {{ end }}
 
 <!-- head custom -->
 {{- partial "extended_head.html" . }}
 
 <script>
-  loadCSS("https://fonts.googleapis.com/css?family=Lora|Fira+Mono|Montserrat|Material+Icons|Noto+Serif+SC:400,700&display=swap");
+  loadCSS("https://fonts.loli.net/css?family=Lora|Fira+Mono|Montserrat|Material+Icons|Noto+Serif+SC:400,700&display=swap");
 </script>
 
 </head>

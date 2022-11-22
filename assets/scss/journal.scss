@@ -553,6 +553,7 @@ a {
       font-family: $mono-font-list;
     }
     .pagination-action {
+      text-decoration: none;
       display: flex;
       flex-direction: column;
       align-content: center;
@@ -993,6 +994,9 @@ a {
   }
   .toc-content {
     padding: 20px;
+    a {
+      text-decoration: none;
+    }
   }
   .toc-active {
     color: darken($color-accent, 40%) !important;

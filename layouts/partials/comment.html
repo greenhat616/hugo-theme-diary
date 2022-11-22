@@ -59,14 +59,24 @@ twikoo.init({
 
 {{ if .Site.Params.walineServer }}
 <div id="waline"></div>
-<script>
+
+<component is="script">
     Waline.init({
         el: '#waline',
-        //path: location.pathname,
-        serverURL: {{.Site.Params.walineServer}} ,
+        path: location.pathname,
+        serverURL: '{{.Site.Params.walineServer}}',
+        comment: true,
+        emoji: [
+            'https://unpkg.com/@waline/emojis@1.1.0/alus',
+            'https://unpkg.com/@waline/emojis@1.1.0/weibo',
+            'https://unpkg.com/@waline/emojis@1.1.0/tieba',
+            'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
+        ],
+        dark: 'body.night',
+        requiredMeta: ['nick','mail'],
     });
     
-    </script>
+</component>
 {{ end }}
 
 {{ if .Site.Params.enableUtterances }}
