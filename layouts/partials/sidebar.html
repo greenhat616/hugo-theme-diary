@@ -1,8 +1,8 @@
-<div ref="sideContainer" class="side-container">
+<div id="sideContainer" class="side-container">
     {{ if eq .Title .Site.Title}}
-    <a class="a-block nav-head active" href="{{.Site.BaseURL}}">
+    <a class="a-block nav-head active" href="{{ "" | absLangURL }}">
     {{ else }}
-    <a class="a-block nav-head false" href="{{.Site.BaseURL}}">
+    <a class="a-block nav-head false" href="{{ "" | absLangURL }}">
     {{ end }}
         <div class="nav-title">
             {{.Site.Title}}
@@ -15,7 +15,7 @@
     </a>
 
     <div class="nav-link-list">
-        {{ $current := .Permalink | absLangURL }}
+        {{ $current := .RelPermalink | absLangURL }}
         {{ range .Site.Menus.main }}
             {{$actived := "false"}}
             <!-- A problem caused by slash: if you use "eq" directly, you will get a result of "/tags/" and "/tags" -->
