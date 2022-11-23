@@ -324,6 +324,7 @@ a {
       -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
       backdrop-filter: saturate(50%) blur(8px);
+      --webkit-backdrop-filter: saturate(50%) blur(8px);
     }
   }
 }
@@ -846,7 +847,7 @@ a {
           }
           .material-icons {
             vertical-align: middle;
-            margin-bottom: 3px;
+            margin: 0 5px 5px 3px;
           }
 
           @media screen and (max-width: $single-column-max-width) {
@@ -855,6 +856,7 @@ a {
               font-size: $single-column-post-meta-size;
             }
           }
+          
         }
       }
     }
@@ -932,6 +934,7 @@ a {
       width: 100%;
       display: flex;
       justify-content: space-between;
+      a {text-decoration: none;}
 
       .newer-posts {
         padding-right: 5px;
@@ -966,7 +969,9 @@ a {
 
 #single-column-footer {
   display: none;
-
+  a {
+    text-decoration: none;
+  }
   @media screen and (max-width: $single-column-max-width) {
     display: block !important;
     text-align: center;
