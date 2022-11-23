@@ -324,7 +324,7 @@ a {
       -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
       backdrop-filter: saturate(50%) blur(8px);
-      --webkit-backdrop-filter: saturate(50%) blur(8px);
+      -webkit-backdrop-filter: saturate(50%) blur(8px);
     }
   }
 }
