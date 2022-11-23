@@ -514,6 +514,11 @@ a {
     }
   }
   .nav-footer {
+    a {
+      text-decoration: none;
+      // color: $color-accent !important;
+      color: $color-accent;
+    }
     padding: 20px 30px 0 20px;
     font-size: $nav-footer-size;
   }

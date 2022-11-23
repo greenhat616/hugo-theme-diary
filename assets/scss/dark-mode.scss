@@ -112,6 +112,12 @@ body.night {
         }
       }
     }
+    .nav-footer {
+      a {
+        text-decoration: underline;
+        color: $dark-mode-text;
+      }
+    }
   }
   .stream-container {
     .post-head-wrapper-text-only * {
