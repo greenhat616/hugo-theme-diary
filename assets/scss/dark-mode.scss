@@ -8,6 +8,8 @@ $dark-mode-back-container-background: #212121;
 $dark-mode-front-container-background: #282828;
 
 html.night {
+  --nav-bar-background-color: rgba(40,40,40,.7);
+  
   body {
     background: $dark-mode-back-container-background;
     :root {
@@ -187,12 +189,13 @@ html.night {
         }
       }
       .nav-background {
-        background: rgba(
-          red($dark-mode-front-container-background),
-          green($dark-mode-front-container-background),
-          blue($dark-mode-front-container-background),
-          0.7
-        );
+        background: var(--nav-bar-background-color);
+        // background-color: rgba(
+        //  red($dark-mode-front-container-background),
+        //  green($dark-mode-front-container-background),
+        //  blue($dark-mode-front-container-background),
+        //  0.7
+        // );
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
       }
     }

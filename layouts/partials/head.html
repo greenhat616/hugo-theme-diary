@@ -190,5 +190,11 @@
       document.documentElement.classList.remove('dark')
       Cookies.set('night', '0')
     }
+
+    // create theme color meta
+    const meta = document.createElement('meta')
+    meta.name = 'theme-color'
+    meta.content = getComputedStyle(document.documentElement).getPropertyValue('--nav-bar-background-color')
+    document.head.appendChild(meta)
   </script>
 </head>

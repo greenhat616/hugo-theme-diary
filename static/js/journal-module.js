@@ -215,6 +215,7 @@ let useJournalSetup;
         document.documentElement.classList.remove("night");
         document.documentElement.classList.remove('dark')
       }
+      document.head.querySelector('meta[name="theme-color"]').content = getComputedStyle(document.documentElement).getPropertyValue('--nav-bar-background-color')
     };
 
     onMounted(() => {
