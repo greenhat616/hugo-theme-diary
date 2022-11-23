@@ -177,6 +177,7 @@ var handleScroll = function () {
   let navBarHeight = function () {
     return document.getElementById("navBar").offsetHeight;
   };
+  console.log(pageHeadHeight(), navBarHeight(), window.scrollY)
   let navOpacity = sgn(
     0.0,
     Math.min(
@@ -184,7 +185,9 @@ var handleScroll = function () {
       Math.max(0, window.scrollY / (pageHeadHeight() - navBarHeight() * 0.8))
     )
   );
+  console.log(navOpacity)
   if (navOpacity >= 1) {
+    console.log(navBackground)
     navBackground.style.opacity = 1;
     navTitle.style.opacity = 1;
   } else {

@@ -47,6 +47,12 @@
         })
         window.app = app = Vue.createApp({
             delimiters: ['$[', ']'], // 避免和 Go 语法冲突
+            setup(props) {
+                const values = window.useJournalSetup()
+                return {
+                    ...values
+                }
+            }
         }).mount('#app');
     })
 //new SmoothScroll('a#globalBackToTop');

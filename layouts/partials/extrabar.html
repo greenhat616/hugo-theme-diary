@@ -15,9 +15,9 @@
             </i>
         </a>
         {{ if not .Site.Params.disableDarkMode }}
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
+        <a type="button" class="pagination-action" id="darkModeToggleButton" @click="toggleDarkMode">
             <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
+                $[isDarkMode ? 'dark_mode' : 'light_mode']
             </span>
         </a>
         {{ end }}

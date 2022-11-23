@@ -1022,6 +1022,9 @@ a {
 
 .pagination {
   display: none;
+  a {
+    text-decoration: none;
+  }
 
   .pagination-action {
     -webkit-appearance: none; // Fix bootstrap set the appearance to button.
