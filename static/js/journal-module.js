@@ -165,10 +165,10 @@ let useJournalSetup;
     const navBarOffsetHeight = ref(0);
     const pageHeadOffsetHeight = ref(0);
     const windowScrollY = ref(0);
-    const isDarkMode = ref(false)
-    const isDrawerOpened = ref(false)
-    const navBar = ref(null)
-    const pageHead = ref(null)
+    const isDarkMode = ref(false);
+    const isDrawerOpened = ref(false);
+    const navBar = ref(null);
+    const pageHead = ref(null);
     const navOpacity = computed(() =>
       sgn(
         0.0,
@@ -187,49 +187,36 @@ let useJournalSetup;
     onMounted(() => {
       navBarOffsetHeight.value = navBar.value.offsetHeight;
       pageHeadOffsetHeight.value = pageHead.value.offsetHeight;
-      window.addEventListener('resize', () => {
+      window.addEventListener("resize", () => {
         navBarOffsetHeight.value = navBar.value.offsetHeight;
         pageHeadOffsetHeight.value = pageHead.value.offsetHeight;
-      })
+      });
       window.addEventListener(
         "scroll",
-        debounce(() => {
-          windowScrollY.value = window.scrollY;
-        }, 100, { maxWait: 100 }),
+        debounce(
+          () => {
+            windowScrollY.value = window.scrollY;
+          },
+          100,
+          { maxWait: 100 }
+        ),
         false
       );
-    })
+    });
 
     toggleDarkMode = function () {
-      isDarkMode.value = !isDarkMode.value
+      isDarkMode.value = !isDarkMode.value;
       if (isDarkMode.value == true) {
-        document.cookie = "night=1;path=/";
-        document.body.classList.add("night");
+        window.Cookies.set('night', 1);
+        document.documentElement.classList.add("night");
       } else {
-        document.cookie = "night=0;path=/";
-        document.body.classList.remove("night");
+        window.Cookies.set('night', 0);
+        document.documentElement.classList.remove("night");
       }
     };
 
     onMounted(() => {
-      const night = document.cookie.replace(
-        /(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/,
-        "$1"
-      );
-
-      if (night == "") {
-        if (
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
-          toggleDarkMode();
-        }
-      } else {
-        // If night is not empty
-        if (night === "1") {
-          toggleDarkMode();
-        }
-      }
+      isDarkMode.value = getNightRawMode() === 1 ? true : false;
 
       // 不一定能生效，但至少是个 debug 的方向
       document.querySelectorAll("table").forEach(function (elem) {
@@ -249,6 +236,6 @@ let useJournalSetup;
       toggleDarkMode,
       navBar,
       pageHead,
-    }
+    };
   };
 })();

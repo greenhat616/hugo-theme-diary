@@ -1,190 +1,194 @@
 <head>
-<title>{{if eq .Title .Site.Title}}{{.Title}}{{else}}{{.Title}} - {{.Site.Title}}{{end}}</title>
+  <title>{{if eq .Title .Site.Title}}{{.Title}}{{else}}{{.Title}} - {{.Site.Title}}{{end}}</title>
 
-{{ $description := .Params.description}}
-{{if .IsHome}}
+  {{ $description := .Params.description}}
+  {{if .IsHome}}
   {{ $description = .Site.Params.description}}
-{{end}}
+  {{end}}
 
-<meta charset="utf-8">
-<meta name="X-UA-Compatible" content="IE=edge">
-<meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-<meta content="telephone=no" name="format-detection">
-<meta name="description" content="{{ $description }}">
-<meta name="renderer" content="webkit">
-<meta name="theme-color" content="#ffffff">
+  <meta charset="utf-8">
+  <meta name="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="description" content="{{ $description }}">
+  <meta name="renderer" content="webkit">
+  <meta name="theme-color" content="#ffffff">
 
-<!-- open-graph -->
-{{if .Site.Params.enableOpenGraph}}
-{{ template "_internal/opengraph.html" . }}
-{{end}}
+  <!-- open-graph -->
+  {{if .Site.Params.enableOpenGraph}}
+  {{ template "_internal/opengraph.html" . }}
+  {{end}}
 
-<!-- twitter-cards -->
-{{if .Site.Params.enableTwitterCards}}
-{{ template "_internal/twitter_cards.html" . }}
-{{end}}
+  <!-- twitter-cards -->
+  {{if .Site.Params.enableTwitterCards}}
+  {{ template "_internal/twitter_cards.html" . }}
+  {{end}}
 
-<!-- metadata -->
+  <!-- metadata -->
 
-{{ if .Site.GoogleAnalytics }}
-{{ template "_internal/google_analytics.html" . }}
-{{ end }}
+  {{ if .Site.GoogleAnalytics }}
+  {{ template "_internal/google_analytics.html" . }}
+  {{ end }}
 
   <!--dayjs start -->
-  <script
-          src="https://cdn.staticfile.org/dayjs/1.11.6/dayjs.min.js"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.staticfile.org/dayjs/1.11.6/plugin/relativeTime.js"
-          crossorigin="anonymous"
-  ></script>
-  <script
-          src="https://cdn.staticfile.org/dayjs/1.11.6/locale/zh-cn.js"
-          crossorigin="anonymous"
-  ></script>
+  <script src="https://cdn.staticfile.org/dayjs/1.11.6/dayjs.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.staticfile.org/dayjs/1.11.6/plugin/relativeTime.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.staticfile.org/dayjs/1.11.6/locale/zh-cn.js" crossorigin="anonymous"></script>
   <script>
     dayjs.locale("zh-cn");
     dayjs.extend(window.dayjs_plugin_relativeTime);
   </script>
 
-{{if .Site.Params.manifest}}
-<link rel="manifest" href="{{.Site.Params.manifest}}">
-{{end}}
-  
-{{if .Params.canonicalUrl}}
-<link rel="canonical" href="{{.Params.canonicalUrl}}" >
-{{end}}
+  {{if .Site.Params.manifest}}
+  <link rel="manifest" href="{{.Site.Params.manifest}}">
+  {{end}}
 
-<!-- favicon -->
-{{ if .Site.Params.favicon }}
-<link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
-{{ end }}
+  {{if .Params.canonicalUrl}}
+  <link rel="canonical" href="{{.Params.canonicalUrl}}">
+  {{end}}
 
-<script src="https://cdn.staticfile.org/loadCSS/3.1.0/loadCSS.min.js"></script>
+  <!-- favicon -->
+  {{ if .Site.Params.favicon }}
+  <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+  {{ end }}
 
-<!-- For compatibility. View https://github.com/AmazingRise/hugo-theme-diary/pull/135 for details.-->
-{{- $hugoVersion := split (replaceRE ".*([0-9]+)\\.([0-9]+)\\.([0-9]+).*" "$1 $2 $3" hugo.Version) " " -}}
-{{- if and (eq (int (index $hugoVersion 0)) 0) (ge (int (index $hugoVersion 1)) 101) -}}
-    {{- /* no leading slash */ -}}
-    {{ if and (not (.Params.disableToC) ) (.IsPage) }}
-      <script src="{{"js/toc.js" | relURL}}"></script>
-    {{ end }}
-    <link type="text/css" rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
-{{- else -}}
-    {{- /* with leading slash */ -}}
-    {{ if and (not (.Params.disableToC) ) (.IsPage) }}
-      <script src="{{"/js/toc.js" | relURL}}"></script>
-    {{ end }}
-    <link type="text/css" rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
-{{- end -}}
+  <!--<script src="https://cdn.staticfile.org/loadCSS/3.1.0/loadCSS.min.js"></script>-->
 
-{{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+  <!-- For compatibility. View https://github.com/AmazingRise/hugo-theme-diary/pull/135 for details.-->
+  {{- $hugoVersion := split (replaceRE ".*([0-9]+)\\.([0-9]+)\\.([0-9]+).*" "$1 $2 $3" hugo.Version) " " -}}
+  {{- if and (eq (int (index $hugoVersion 0)) 0) (ge (int (index $hugoVersion 1)) 101) -}}
+  {{- /* no leading slash */ -}}
+  {{ if and (not (.Params.disableToC) ) (.IsPage) }}
+  <script src="{{" js/toc.js" | relURL}}"></script>
+  {{ end }}
+  <link type="text/css" rel="stylesheet"
+    href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
+  {{- else -}}
+  {{- /* with leading slash */ -}}
+  {{ if and (not (.Params.disableToC) ) (.IsPage) }}
+  <script src="{{" /js/toc.js" | relURL}}"></script>
+  {{ end }}
+  <link type="text/css" rel="stylesheet"
+    href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
+  {{- end -}}
 
-{{ if not .Site.Params.disableDarkmode }}
-{{ $darkmode := resources.Get "scss/dark-mode.scss" | toCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen">
-{{ end }}
-<script src="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
-{{ if .Site.IsServer }}
-<script src="https://cdn.staticfile.org/vue/3.2.29/vue.global.min.js"></script>
-{{ else }}
-<script src="https://cdn.staticfile.org/vue/3.2.29/vue.global.prod.min.js"></script>
-{{ end }}
-<script>
-  loadCSS("https://fonts.loli.net/css?family=Fira+Mono|Material+Icons");
-</script>
+  {{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 
-{{ if .Site.Params.cloudflareToken }}
-<!-- Cloudflare Web Analytics -->
-<script defer
-	src='https://static.cloudflareinsights.com/beacon.min.js'
-	data-cf-beacon='{"token": {{ .Site.Params.cloudflareToken }}'>
-</script>
-<!-- End Cloudflare Web Analytics -->
-{{ end }}
+  {{ if not .Site.Params.disableDarkmode }}
+  {{ $darkmode := resources.Get "scss/dark-mode.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen">
+  {{ end }}
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+  {{ if .Site.IsServer }}
+  <script src="https://cdn.staticfile.org/vue/3.2.29/vue.global.min.js"></script>
+  {{ else }}
+  <script src="https://cdn.staticfile.org/vue/3.2.29/vue.global.prod.min.js"></script>
+  {{ end }}
+  <link rel="stylesheet"
+    href="https://fonts.loli.net/css?family=Lora|Fira+Mono|Montserrat|Material+Icons|Noto+Serif+SC:400,700&display=swap">
 
-{{ if or (.Params.enableLaTeX) (.Site.Params.enableLaTeX) }}
-<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.3/katex.min.css" crossorigin="anonymous">
-<script defer src="https://cdn.staticfile.org/KaTeX/0.16.3/katex.min.js" crossorigin="anonymous"></script>
-<script defer src="https://cdn.staticfile.org/KaTeX/0.16.3/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          // customised options
-          // • auto-render specific keys, e.g.:
-          delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false},
-              {left: '\\(', right: '\\)', display: false},
-              {left: '\\[', right: '\\]', display: true}
-          ],
-          // • rendering keys, e.g.:
-          throwOnError : false
-        });
+  {{ if .Site.Params.cloudflareToken }}
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+    data-cf-beacon='{"token": {{ .Site.Params.cloudflareToken }}'>
+    </script>
+  <!-- End Cloudflare Web Analytics -->
+  {{ end }}
+
+  {{ if or (.Params.enableLaTeX) (.Site.Params.enableLaTeX) }}
+  <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.3/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.staticfile.org/KaTeX/0.16.3/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.staticfile.org/KaTeX/0.16.3/contrib/auto-render.min.js"
+    crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        // customised options
+        // • auto-render specific keys, e.g.:
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ],
+        // • rendering keys, e.g.:
+        throwOnError: false
+      });
     });
-</script>
-{{ end }}
+  </script>
+  {{ end }}
 
 
 
-{{ if and ( and ( .Site.Params.enableGitalk ) ( .IsPage ) ) ( or ( not ( isset .Params "comment" ) ) ( eq .Params.comment true ) ) }}
-<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.css">
-<script src="https://cdn.staticfile.org/gitalk/1.8.0/gitalk-component.min.js"></script>
-<!-- For compatibility. View https://github.com/AmazingRise/hugo-theme-diary/pull/135 for details.-->
-{{- $hugoVersion := split (replaceRE ".*([0-9]+)\\.([0-9]+)\\.([0-9]+).*" "$1 $2 $3" hugo.Version) " " -}}
-{{- if and (eq (int (index $hugoVersion 0)) 0) (ge (int (index $hugoVersion 1)) 101) -}}
-    {{- /* no leading slash */ -}}
-    <script src="{{"vendor/js/md5.min.js" | relURL}}"></script>
-{{- else -}}
-    {{- /* with leading slash */ -}}
-    <script src="{{"/vendor/js/md5.min.js" | relURL}}"></script>
-{{- end -}}
-<script>
-  const gitalk = new Gitalk({
-    clientID: '{{ .Site.Params.Gitalk.client_id }}',
-    clientSecret: '{{ .Site.Params.Gitalk.client_secret }}',
-    repo: '{{ .Site.Params.Gitalk.repo }}',
-    owner: '{{ .Site.Params.Gitalk.owner }}',
-    admin: ['{{ .Site.Params.Gitalk.owner }}'],
-    id: md5(location.pathname),
-    distractionFreeMode: 'false'
-  });
-  window.onload = function () {
-        gitalk.render('gitalk-container')
-  }
-</script>
-{{ end }}
+  {{ if and ( and ( .Site.Params.enableGitalk ) ( .IsPage ) ) ( or ( not ( isset .Params "comment" ) ) ( eq
+  .Params.comment true ) ) }}
+  <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.8.0/gitalk.min.css">
+  <script src="https://cdn.staticfile.org/gitalk/1.8.0/gitalk-component.min.js"></script>
+  <!-- For compatibility. View https://github.com/AmazingRise/hugo-theme-diary/pull/135 for details.-->
+  {{- $hugoVersion := split (replaceRE ".*([0-9]+)\\.([0-9]+)\\.([0-9]+).*" "$1 $2 $3" hugo.Version) " " -}}
+  {{- if and (eq (int (index $hugoVersion 0)) 0) (ge (int (index $hugoVersion 1)) 101) -}}
+  {{- /* no leading slash */ -}}
+  <script src="{{" vendor/js/md5.min.js" | relURL}}"></script>
+  {{- else -}}
+  {{- /* with leading slash */ -}}
+  <script src="{{" /vendor/js/md5.min.js" | relURL}}"></script>
+  {{- end -}}
+  <script>
+    const gitalk = new Gitalk({
+      clientID: '{{ .Site.Params.Gitalk.client_id }}',
+      clientSecret: '{{ .Site.Params.Gitalk.client_secret }}',
+      repo: '{{ .Site.Params.Gitalk.repo }}',
+      owner: '{{ .Site.Params.Gitalk.owner }}',
+      admin: ['{{ .Site.Params.Gitalk.owner }}'],
+      id: md5(location.pathname),
+      distractionFreeMode: 'false'
+    });
+    window.onload = function () {
+      gitalk.render('gitalk-container')
+    }
+  </script>
+  {{ end }}
 
-{{ if and (.Site.Params.livereId) (.IsPage) }}
-<script type="text/javascript">
-</script>
-{{ end }}
+  {{ if and (.Site.Params.livereId) (.IsPage) }}
+  <script type="text/javascript">
+  </script>
+  {{ end }}
 
-{{ if and (.Site.Params.disqusShortname) (.IsPage) }}
-<script src="https://cdn.staticfile.org/vue-disqus/5.1.0/vue-disqus.iife.min.js"></script>
-{{ end }}
+  {{ if and (.Site.Params.disqusShortname) (.IsPage) }}
+  <script src="https://cdn.staticfile.org/vue-disqus/5.1.0/vue-disqus.iife.min.js"></script>
+  {{ end }}
 
-{{ if and (.Site.Params.enableTwikoo) (.IsPage) }}
-<script src="https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"></script>
-{{ end }}
+  {{ if and (.Site.Params.enableTwikoo) (.IsPage) }}
+  <script src="https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js"></script>
+  {{ end }}
 
-{{ if and (.Site.Params.walineServer) (.IsPage) }}
-<link
-rel="stylesheet"
-href="https://cdn.staticfile.org/waline/2.14.1/waline.min.css"
-/>
-<script src="https://cdn.staticfile.org/waline/2.14.1/waline.min.js"></script>
+  {{ if and (.Site.Params.walineServer) (.IsPage) }}
+  <link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.1/waline.min.css" />
+  <script src="https://cdn.staticfile.org/waline/2.14.1/waline.min.js" defer></script>
+  {{ end }}
 
-{{ end }}
+  <script src="https://cdn.staticfile.org/js-cookie/3.0.1/js.cookie.min.js"></script>
+  <!-- head custom -->
+  {{- partial "extended_head.html" . }}
 
-<!-- head custom -->
-{{- partial "extended_head.html" . }}
+  <!-- night mode detect-->
+  <script>
+    const getNightRawMode = () => {
+      let night = Cookies.get('night');
+      if (night === undefined) {
+        night = window.matchMedia('(prefers-color-scheme: dark)').matches ? 1 : 0;
+      }
+    }
 
-<script>
-  loadCSS("https://fonts.loli.net/css?family=Lora|Fira+Mono|Montserrat|Material+Icons|Noto+Serif+SC:400,700&display=swap");
-</script>
+    if (getNightRawMode() === 1) {
+      document.documentElement.classList.add('night');
+      Cookies.set('night', 1)
+    } else {
+      document.documentElement.classList.remove('night');
+      Cookies.set('night', 0)
+    }
 
+  </script>
 </head>

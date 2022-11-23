@@ -7,13 +7,15 @@ $dark-mode-text: darken(#fff, 10%);
 $dark-mode-back-container-background: #212121;
 $dark-mode-front-container-background: #282828;
 
-body.night {
-  background: $dark-mode-back-container-background;
-  :root {
-    --color_555: #ccc;
-    --color_ededed: #000;
+html.night {
+  body {
+    background: $dark-mode-back-container-background;
+    :root {
+      --color_555: #ccc;
+      --color_ededed: #000;
+    }
   }
-
+  
   img {
     opacity: 0.8;
   }
