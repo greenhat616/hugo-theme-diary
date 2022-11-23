@@ -207,16 +207,16 @@ let useJournalSetup;
     toggleDarkMode = function () {
       isDarkMode.value = !isDarkMode.value;
       if (isDarkMode.value == true) {
-        window.Cookies.set('night', 1);
+        window.Cookies.set('night', '1');
         document.documentElement.classList.add("night");
       } else {
-        window.Cookies.set('night', 0);
+        window.Cookies.set('night', '0');
         document.documentElement.classList.remove("night");
       }
     };
 
     onMounted(() => {
-      isDarkMode.value = getNightRawMode() === 1 ? true : false;
+      isDarkMode.value = getNightRawMode() === '1' ? true : false;
 
       // 不一定能生效，但至少是个 debug 的方向
       document.querySelectorAll("table").forEach(function (elem) {

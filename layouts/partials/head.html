@@ -178,16 +178,17 @@
     const getNightRawMode = () => {
       let night = Cookies.get('night');
       if (night === undefined) {
-        night = window.matchMedia('(prefers-color-scheme: dark)').matches ? 1 : 0;
+        night = window.matchMedia('(prefers-color-scheme: dark)').matches ? '1' : '0';
       }
+      return night
     }
 
-    if (getNightRawMode() === 1) {
+    if (getNightRawMode() === '1') {
       document.documentElement.classList.add('night');
-      Cookies.set('night', 1)
+      Cookies.set('night', '1')
     } else {
       document.documentElement.classList.remove('night');
-      Cookies.set('night', 0)
+      Cookies.set('night', '0')
     }
 
   </script>
