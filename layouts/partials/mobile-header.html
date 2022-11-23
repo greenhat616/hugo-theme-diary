@@ -1,4 +1,4 @@
-<div :class="{ 'single-column-drawer-container': true, 'single-column-drawer-container-active': isDrawerOpened }" id="drawer">
+<div class="single-column-drawer-container" :class="{ 'single-column-drawer-container-active': isDrawerOpened }" id="drawer">
     <div class="drawer-content">
         <div class="drawer-menu">
             {{ if and (isset .Site.Params "googlesearchcode") (.IsHome) }}

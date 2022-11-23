@@ -209,9 +209,11 @@ let useJournalSetup;
       if (isDarkMode.value == true) {
         window.Cookies.set('night', '1');
         document.documentElement.classList.add("night");
+        document.documentElement.classList.add('dark')
       } else {
         window.Cookies.set('night', '0');
         document.documentElement.classList.remove("night");
+        document.documentElement.classList.remove('dark')
       }
     };
 

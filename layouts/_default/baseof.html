@@ -18,7 +18,7 @@
             {{- partial "mobile-footer.html" . -}}
             <!-- mobile footer -->
         </div>
-    <script src="{{"js/journal-module.js" | relURL}}" type="text/javascript"></script>
+    <script src="{{"js/journal-module.js" | relURL}}?ts={{ now.Unix }}" type="text/javascript"></script>
     {{ partial "journal.html" .}}
     <!-- For compatibility. View https://github.com/AmazingRise/hugo-theme-diary/pull/135 for details.-->
     {{- $hugoVersion := split (replaceRE ".*([0-9]+)\\.([0-9]+)\\.([0-9]+).*" "$1 $2 $3" hugo.Version) " " -}}
