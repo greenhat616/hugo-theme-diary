@@ -49,7 +49,8 @@ $color-text: $deep-dark-accent;
 
 $single-column-max-width: 1020px;
 $single-column-drawer-width: 260px;
-$single-column-nav-title-size: 28px;
+// $single-column-nav-title-size: 28px;
+$single-column-nav-title-size: 30px;
 $single-column-nav-subtitle-size: 20px;
 $single-column-nav-link-size: 18px;
 $single-column-nav-footer-size: 13px;
@@ -345,6 +346,8 @@ a {
     }
     .single-column-header-title {
       font-size: $single-column-nav-title-size;
+      line-height: 42px;
+      font-weight: 600;
     }
     .single-column-header-subtitle {
       font-size: $single-column-nav-subtitle-size;
