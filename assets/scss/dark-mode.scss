@@ -179,7 +179,12 @@ body.night {
         }
       }
       .nav-background {
-        background: $dark-mode-front-container-background;
+        background: rgba(
+          red($dark-mode-front-container-background),
+          green($dark-mode-front-container-background),
+          blue($dark-mode-front-container-background),
+          0.7
+        );
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
       }
     }
@@ -274,7 +279,7 @@ body.night {
       }
     }
   }
-  
+
   // friendship
   .friendship {
     .card {
