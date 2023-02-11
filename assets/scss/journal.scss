@@ -935,6 +935,16 @@ a {
         @media screen and (max-width: $single-column-max-width) {
           font-size: $single-column-post-body-size;
         }
+
+        li {
+          p {
+            margin-bottom: 0;
+          }
+        }
+
+        a.footnote-backref {
+          text-decoration: none;
+        }
         /*
         Table of Contents
         */
