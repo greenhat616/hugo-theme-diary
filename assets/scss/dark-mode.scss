@@ -315,6 +315,11 @@ html.night {
     }
   }
 
+  .viewer-canvas {
+    img {
+      opacity: 1;
+    }
+  }
   // waline
   /* 常规颜色 */
   --waline-white: #000;
