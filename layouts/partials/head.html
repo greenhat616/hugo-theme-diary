@@ -81,13 +81,14 @@
     href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
   {{- end -}}
 
-  {{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
-
   {{ if not .Site.Params.disableDarkmode }}
   {{ $darkmode := resources.Get "scss/dark-mode.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $darkmode.RelPermalink }}" integrity="{{ $darkmode.Data.Integrity }}" media="screen">
+  {{ else }}
+  {{ $styles := resources.Get "scss/journal.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
   {{ end }}
+  
   <script src="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
   {{ if .Site.IsServer }}
   <script src="https://cdn.staticfile.org/vue/3.2.29/vue.global.min.js"></script>

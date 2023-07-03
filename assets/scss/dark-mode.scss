@@ -302,6 +302,19 @@ html.night {
     }
   }
 
+
+  .extra-container { 
+    .pagination {
+      .pagination-action {
+        &:hover {
+          * {
+            color: $deep-light-accent !important;
+          }
+        }
+      }
+    }
+  }
+
   // waline
   /* 常规颜色 */
   --waline-white: #000;
