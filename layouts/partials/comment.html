@@ -11,7 +11,7 @@
      */
     var disqus_config = function () {
         // Replace PAGE_URL with your page's canonical URL variable
-        this.page.url = '{{ .RelPermalink }}';  
+        this.page.url = '{{ .Permalink }}';  
         
         // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         this.page.identifier = '{{ .RelPermalink }}'; 
@@ -87,6 +87,24 @@ twikoo.init({
         label="{{ .Site.Params.utterances.label }}"
         theme="{{ .Site.Params.utterances.theme }}"
         crossorigin="anonymous"
+        async>
+</script>
+{{ end }}
+
+{{ if .Site.Params.enableGiscus }}
+<script src="https://giscus.app/client.js"
+        data-repo="{{ .Site.Params.giscus.data_repo}}"
+        data-repo-id="{{ .Site.Params.giscus.data_repo_id}}"
+        data-category="{{ .Site.Params.giscus.data_category}}"
+        data-category-id="{{ .Site.Params.giscus.data_category_id}}"
+        data-mapping="{{ .Site.Params.giscus.data_mapping}}"
+        data-strict="{{ .Site.Params.giscus.data_strict}}"
+        data-reactions-enabled="{{ .Site.Params.giscus.data_reactions_enabled}}"
+        data-emit-metadata="{{ .Site.Params.giscus.data_emit_metadata}}"
+        data-input-position="{{ .Site.Params.giscus.data_input_position}}"
+        data-theme="{{ .Site.Params.giscus.data_theme}}"
+        data-lang="{{ .Site.Params.giscus.data_lang}}"
+        crossorigin="{{ .Site.Params.giscus.crossorigin}}"
         async>
 </script>
 {{ end }}

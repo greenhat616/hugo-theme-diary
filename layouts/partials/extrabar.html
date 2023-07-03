@@ -1,13 +1,16 @@
 <div id="extraContainer" class="extra-container">
-    {{ if and (isset .Site.Params "googlesearchcode") (.IsHome) }}
-    <component :is="'script'" async src="https://cse.google.com/cse.js?cx={{.Site.Params.googleSearchCode}}"></component>
-    <div class="gcse-searchbox-only" mobileLayout="true"></div>
-    {{ end }}
-    {{ if and (not (.Params.disableToC) ) (.IsPage) }}
-    <div class="toc animated-visibility">
-        {{- partial "toc.html" . -}}
+    <div class="toc-wrapper">
+        {{ if and (isset .Site.Params "googlesearchcode") (.IsHome) }}
+        <componet :is="'script'" async src="https://cse.google.com/cse.js?cx={{.Site.Params.googleSearchCode}}"></componet>
+        <div class="gcse-searchbox-only" mobileLayout="true"></div>
+        {{ end }}
+
+        {{ if and (not (.Params.disableToC) ) (.IsPage) }}
+        <div class="toc animated-visibility">
+            {{- partial "toc.html" . -}}
+        </div>
+        {{ end }}
     </div>
-    {{ end }}
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top">
             <i class="material-icons pagination-action-icon">
@@ -23,27 +26,32 @@
         {{ end }}
         {{ if and (.Paginator) (not (.Data.Terms)) }}
         {{ if gt .Paginator.TotalPages 1 }}
-            <div class="pagination-indicator">
-                <span style="text-align: center">
-                    {{.Paginator.PageNumber}}<br><div style="display: inline-block; transform: rotate(-28deg)">-</div><br>{{.Paginator.TotalPages}}
-                </span>
-            </div>
-            
-            {{ if .Paginator.HasPrev }}
-            <a class="pagination-action" href="{{.Paginator.Prev.URL}}">
-                <i class="material-icons pagination-action-icon">
-                    chevron_left
-                </i>
-            </a>
-            {{ end }}
 
-            {{ if .Paginator.HasNext }}
-            <a class="pagination-action" href="{{.Paginator.Next.URL}}">
-                <i class="material-icons pagination-action-icon">
-                    chevron_right
-                </i>
-            </a>
+        <a class="pagination-action" {{ if .Paginator.HasPrev }} href="{{.Paginator.Prev.URL}}">
+            {{ else }}
+            style="visibility:hidden">
             {{ end }}
+            <i class="material-icons pagination-action-icon">
+                chevron_left
+            </i>
+        </a>
+
+        <div class="pagination-indicator">
+            <span style="text-align: center">
+                {{.Paginator.PageNumber}}<br>
+                <div style="display: inline-block; transform: rotate(-28deg)">-</div><br>{{.Paginator.TotalPages}}
+            </span>
+        </div>
+
+
+        <a class="pagination-action" {{ if .Paginator.HasNext }} href="{{.Paginator.Next.URL}}">
+            {{ else }}
+            style="visibility:hidden">
+            {{ end }}
+            <i class="material-icons pagination-action-icon">
+                chevron_right
+            </i>
+        </a>
         {{ end }}
         {{ end }}
     </div>

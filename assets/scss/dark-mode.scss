@@ -46,7 +46,7 @@ html.night {
 
   pre {
     code:not([data-lang]) {
-      background: none !important;
+      background: none;
       color: $dark-mode-text !important;
     }
     color: $dark-mode-text !important;
