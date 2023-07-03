@@ -12,11 +12,16 @@
         {{ end }}
     </div>
     <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
+        <Transition name="fade"
+            enter-active-class="animate__animated animate__bounceInUp"
+            leave-active-class="animate__animated animate__bounceOutDown"
+        >
+            <a id="globalBackToTop" class="pagination-action animated-visibility" v-show="windowScrollY > 100" href="#top">
+                <i class="material-icons pagination-action-icon">
+                    keyboard_arrow_up
+                </i>
+            </a>
+        </Transition>
         {{ if not .Site.Params.disableDarkMode }}
         <a type="button" class="pagination-action" id="darkModeToggleButton" @click="toggleDarkMode">
             <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
@@ -29,7 +34,7 @@
 
         <a class="pagination-action" {{ if .Paginator.HasPrev }} href="{{.Paginator.Prev.URL}}">
             {{ else }}
-            style="visibility:hidden">
+            style="display: none">
             {{ end }}
             <i class="material-icons pagination-action-icon">
                 chevron_left
@@ -46,7 +51,7 @@
 
         <a class="pagination-action" {{ if .Paginator.HasNext }} href="{{.Paginator.Next.URL}}">
             {{ else }}
-            style="visibility:hidden">
+            style="display: none">
             {{ end }}
             <i class="material-icons pagination-action-icon">
                 chevron_right

@@ -161,6 +161,16 @@ let useJournalSetup;
       return k * (x - t);
     }
   };
+
+  function getScrollTop () {
+    return (
+      window.pageYOffset ||
+      window.scrollY || 
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0
+    )
+  }
   window.useJournalSetup = useJournalSetup = () => {
     const navBarOffsetHeight = ref(0);
     const pageHeadOffsetHeight = ref(0);
@@ -195,10 +205,10 @@ let useJournalSetup;
         "scroll",
         debounce(
           () => {
-            windowScrollY.value = window.scrollY;
+            windowScrollY.value = getScrollTop();
           },
-          100,
-          { maxWait: 100 }
+          50,
+          { maxWait: 50 }
         ),
         false
       );
