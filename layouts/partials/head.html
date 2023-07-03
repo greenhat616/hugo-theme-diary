@@ -207,4 +207,10 @@
     meta.content = getComputedStyle(document.documentElement).getPropertyValue('--nav-bar-background-color')
     document.head.appendChild(meta)
   </script>
+
+
+  {{ if not .Site.Params.disableViewerJS }}
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/viewerjs/1.10.4/viewer.min.css" />
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/viewerjs/1.10.4/viewer.min.js" defer></script>
+  {{ end }}
 </head>

@@ -61,6 +61,7 @@
             .component('OutdatedNotice', OutdatedNotice)
             .mount('#app');
         // console.log(app.component('outdated-notice'))
+        if (window.Viewer) window.viewer = new window.Viewer(document.querySelector('.post-body'));
     })
 //new SmoothScroll('a#globalBackToTop');
 

@@ -106,7 +106,6 @@
                 {{end}}
             </nav>
             {{ end }}
-
             <div class="post-comment-wrapper">
                 {{ if eq .Params.comment false }}
                 <p style="opacity: 0.6" align="center">
@@ -117,6 +116,9 @@
                 {{ end }}
             </div>
         </div>
+        {{ if not .Site.Params.disableViewerJS }}
+        <div id="image-viewer"></div> 
+        {{ end }}
     </div>
 
 {{ end }}
