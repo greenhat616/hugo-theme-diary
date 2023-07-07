@@ -955,6 +955,9 @@ a {
           max-width: 100%;
           border-radius: 5px;
           overflow: hidden;
+          &:hover {
+            cursor: pointer;
+          }
         }
         @media screen and (max-width: $single-column-max-width) {
           font-size: $single-column-post-body-size;

@@ -125,5 +125,7 @@
             </div>
         </div>
     </div>
-
+    {{ if .Params.disableImageViewer}}
+    <span id="disable-image-viewer" style="display: none; visibility: hidden;"></span>
+    {{ end }}
 {{ end }}
