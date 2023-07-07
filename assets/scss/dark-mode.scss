@@ -315,6 +315,16 @@ html.night {
     }
   }
 
+  .post-cc{
+    &::after{
+      background-color: lighten($color: rgba($color-accent, 0.05), $amount: 25%);
+    }
+    *, p {
+      color: $deep-light-accent;
+    }
+  }
+
+
   .viewer-canvas {
     img {
       opacity: 1;

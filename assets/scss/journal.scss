@@ -1166,6 +1166,41 @@ mjx-container {
   color: black !important;
 }
 
+// CC
+.post-cc {
+  &::after {
+    -webkit-mask-image: url('/images/cc.svg');
+    mask-image: url('/images/cc.svg');
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background-color: darken($color: rgba($color-accent, 0.05), $amount: 25%);
+    content: " ";
+    height: 175px;
+    width: 175px;
+    display: block;
+    z-index: -1;
+    position: absolute;
+    left: -57px;
+    top: -55px;
+    transform: rotate(325deg);
+  }
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+  // margin-top: 2rem;
+  margin-left: -$post-wrapper-padding-x;
+  margin-right: -$post-wrapper-padding-x;
+  padding: $post-wrapper-padding-y $post-wrapper-padding-x $post-wrapper-padding-x;
+  p {
+    margin-bottom: 0;
+  }
+  color: $dark-accent;
+  background: rgba($color-accent, 0.05);
+}
+
+
 // Friendship
 .friendship {
   .card {

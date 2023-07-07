@@ -76,7 +76,15 @@
                     {{.Content}}
                     {{ if not .Lastmod.IsZero }}
                     <HR width="100%" id="EOF">
-		    <p style="color:#777;">{{ i18n "last_mod_on" .Page.Lastmod }}</p>
+		            <p style="color:#777; margin-top: 1rem;">{{ i18n "last_mod_on" .Page.Lastmod }}</p>
+                    {{ end }}
+                    {{ if not .Params.disableCC }}
+                    <div class="post-cc">
+                        <p>文章标题：{{if eq .Title .Site.Title}}{{.Title}}{{else}}{{.Title}} - {{.Site.Title}}{{end}}</p>
+                        <p>文章地址：<a :href="currentURL" v-text="currentURL" target="__blank" rel="noopener"></a></p>
+                        <p>本文采用 <b><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></b> 进行许可。</p>
+                        <p>文本排版遵循 <a href="">中文文案排版指北</a>；允许自由转载和修改，但请务必标明文章来源且不得运用于商业目的并以相同方式分享（不得破坏排版格式）。</p>
+                    </div>
                     {{ end }}
                 </div>
             </div>

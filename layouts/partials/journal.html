@@ -52,8 +52,10 @@
             delimiters: ['$[', ']'], // 避免和 Go 语法冲突
             setup (props) {
                 const values = window.useJournalSetup()
+                const currentURL = window.location.origin + window.location.pathname
                 return {
-                    ...values
+                    ...values,
+                    currentURL
                 }
             }
         })
