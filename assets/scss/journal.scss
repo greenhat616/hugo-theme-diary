@@ -37,6 +37,10 @@ $post-subtitle-size: 14px;
 $post-summary-size: 16px;
 $post-body-size: 16px;
 $post-meta-size: 16px;
+$post-wrapper-padding-x: 30px;
+$post-wrapper-padding-y: 35px;
+$post-wrapper-padding-mobile: 20px;
+
 $tag-category-title-size: 22px;
 $toc-size: 16px;
 
@@ -184,6 +188,9 @@ blockquote {
   }
   * {
     color: $dark-accent;
+  }
+  ul {
+    margin-bottom: 0;
   }
 }
 
@@ -933,10 +940,10 @@ a {
     }
 
     .post-body-wrapper {
-      padding: 30px 35px 35px 35px;
+      padding: $post-wrapper-padding-y $post-wrapper-padding-x $post-wrapper-padding-x;
 
       @media screen and (max-width: $single-column-max-width) {
-        padding: 20px 20px 35px 20px;
+        padding: $post-wrapper-padding-mobile $post-wrapper-padding-mobile $post-wrapper-padding-x $post-wrapper-padding-mobile;
       }
       .post-body {
         font-size: $post-body-size;
@@ -1190,8 +1197,7 @@ mjx-container {
       justify-content: center;
       flex-direction: column;
       width: 70%;
-      font-family: montserrat, roboto, source sans pro, helvetica, lora,
-        noto serif sc, serif;
+      font-family: $sans-preferred-font-list;
 
       > h1 {
         // Name
