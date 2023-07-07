@@ -5,19 +5,22 @@ $color-accent: #01506f;
 $back-container-background: #fcfcfc;
 $front-container-background: #ffffff;
 
-$default-font-list: "Lora", "Noto Serif SC", serif, -apple-system,
-  BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-  "Noto Color Emoji";
-$mono-font-list: "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro",
-  monospace;
-$sans-preferred-font-list: "Montserrat", "Roboto", "Source Sans Pro",
-  "Helvetica", $default-font-list;
-
-// $default-font-list: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+// $default-font-list: "Lora", "Noto Serif SC", serif, -apple-system,
+//   BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+//   sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+//   "Noto Color Emoji";
 // $mono-font-list: "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro",
 //   monospace;
-//$sans-preferred-font-list: "Montserrat", "Roboto", "Source Sans Pro", "Helvetica", $default-font-list;
+// $sans-preferred-font-list: "Montserrat", "Roboto", "Source Sans Pro",
+//   "Helvetica", $default-font-list;
+
+$serif-sans-font-list: "Noto Serif SC", serif;
+$nav-font: "ZCOOL XiaoWei", $serif-sans-font-list;
+
+$default-font-list: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+$mono-font-list: "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro",
+  monospace;
+$sans-preferred-font-list: "montserrat", "Roboto", "Source Sans Pro", "Helvetica", $default-font-list;
 // $sans-preferred-font-list: $default-font-list;
 
 $side-container-width: 25%; //280px;
@@ -26,7 +29,7 @@ $extra-container-pagination-width: 64px;
 $stream-container-max-width: 1620px;
 
 $nav-title-size: 30px;
-$nav-subtitle-size: 18px;
+$nav-subtitle-size: 19px;
 $nav-link-size: 20px;
 $nav-footer-size: 12px;
 $post-title-size: 30px;
@@ -464,15 +467,19 @@ a {
     cursor: pointer;
     margin-bottom: 10px;
     color: $deep-dark-accent;
+
+    font-family: $nav-font;
+
     .nav-title {
       font-size: $nav-title-size;
       line-height: $nav-title-size * 1.4;
-      font-weight: 600;
+      font-weight: 700;
     }
     border-right: 2px solid transparent;
     .nav-subtitle {
       margin-top: 8px;
       font-size: $nav-subtitle-size;
+      font-weight: 400;
     }
     &:hover {
       border-right: 2px solid
@@ -679,7 +686,6 @@ a {
               font-style: normal;
               margin-bottom: 10px;
               line-height: 1.5em;
-
               @media screen and (max-width: $single-column-max-width) {
                 font-size: $single-column-post-title-size;
                 margin-bottom: 5px;
