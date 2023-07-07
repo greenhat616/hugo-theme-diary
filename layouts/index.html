@@ -20,15 +20,16 @@
                         {{ if $featured_image }}
                             {{ $image := .Resources.GetMatch (.Params.featured_image) }}
                             <div class="post-item-image-wrapper">
-                            <div class="post-item-image"
-                            {{ if $image }}
+                                <div class="post-item-image">
+                                <div class="post-item-image-inner"
+                                {{ if $image }}
                                 {{ $thumbnail := $image.Resize "690x360" }}
-                                 style="background-image: url('{{ $thumbnail.RelPermalink }}')"
-                            {{ else }}
-                            
-                                style="background-image: url('{{ $featured_image | absURL}}')"
-                            {{ end }}
-                            ></div>
+                                    style="background-image: url('{{ $thumbnail.RelPermalink }}')"
+                                {{ else }}
+                                    style="background-image: url('{{ $featured_image | absURL}}')"
+                                {{ end }}
+                                ></div>
+                            </div>
                             </div>
                         {{ end }}
                     </div>
