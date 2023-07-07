@@ -648,9 +648,8 @@ a {
         cursor: hand;
         cursor: pointer;
         &:hover {
-          .post-item-image-inner {
-            transform: scale(1.3);
-            transition: transform linear 0.25s;
+        .post-item-image-inner {
+            transform: scale(1.3);   
           }
         }
         .post-item {
@@ -738,7 +737,7 @@ a {
                 height: 100%;
                 background: no-repeat center;
                 background-size: cover;
-                overflow: hidden;
+                transition: transform 0.3s linear;
               }
             }
           }
