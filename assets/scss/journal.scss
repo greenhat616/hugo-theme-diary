@@ -284,6 +284,7 @@ a {
       //justify-content: space-between;
       //align-items: stretch;
       flex: 1;
+      font-family: $nav-font;
     }
     .nav-dropdown-toggle {
       display: flex;
@@ -363,9 +364,11 @@ a {
       font-size: $single-column-nav-title-size;
       line-height: 42px;
       font-weight: 600;
+      font-family: $nav-font;
     }
     .single-column-header-subtitle {
       font-size: $single-column-nav-subtitle-size;
+      font-family: $nav-font;
     }
   }
 }
