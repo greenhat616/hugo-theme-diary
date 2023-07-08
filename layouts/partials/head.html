@@ -30,9 +30,9 @@
   {{ end }}
 
   <!--dayjs start -->
-  <script src="https://cdn.staticfile.org/dayjs/1.11.6/dayjs.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.staticfile.org/dayjs/1.11.6/plugin/relativeTime.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.staticfile.org/dayjs/1.11.6/locale/zh-cn.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.staticfile.org/dayjs/1.11.9/dayjs.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.staticfile.org/dayjs/1.11.9/plugin/relativeTime.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.staticfile.org/dayjs/1.11.9/locale/zh-cn.js" crossorigin="anonymous"></script>
   <script>
     dayjs.locale("zh-cn");
     dayjs.extend(window.dayjs_plugin_relativeTime);
@@ -71,14 +71,14 @@
   <!--<script src="{{"js/toc.js" | relURL}}"></script>-->
   {{ end }}
   <link type="text/css" rel="stylesheet"
-    href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
+    href="https://cdn.staticfile.org/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
   {{- else -}}
   {{- /* with leading slash */ -}}
   {{ if and (not (.Params.disableToC) ) (.IsPage) }}
   <script src="{{" /js/toc.js" | relURL}}"></script>
   {{ end }}
   <link type="text/css" rel="stylesheet"
-    href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
+    href="https://cdn.staticfile.org/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
   {{- end -}}
 
   {{ if not .Site.Params.disableDarkmode }}
@@ -89,11 +89,11 @@
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
   {{ end }}
   
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   {{ if .Site.IsServer }}
-  <script src="https://cdn.staticfile.org/vue/3.2.29/vue.global.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.min.js"></script>
   {{ else }}
-  <script src="https://cdn.staticfile.org/vue/3.2.29/vue.global.prod.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
   {{ end }}
   <!-- <link type="text/css" rel="stylesheet"
     href="https://fonts.yecdn.com/css?family=Lora|Fira+Mono|Montserrat|Material+Icons|Noto+Serif+SC:400,600,700|ZCOOL+XiaoWei&display=swap"> -->
@@ -109,9 +109,9 @@
   {{ end }}
 
   {{ if or (.Params.enableLaTeX) (.Site.Params.enableLaTeX) }}
-  <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.3/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.staticfile.org/KaTeX/0.16.3/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.staticfile.org/KaTeX/0.16.3/contrib/auto-render.min.js"
+  <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"
     crossorigin="anonymous"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -176,11 +176,11 @@
   {{ end }}
 
   {{ if and (.Site.Params.walineServer) (.IsPage) }}
-  <link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.14.1/waline.min.css" />
-  <script src="https://cdn.staticfile.org/waline/2.14.1/waline.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/waline/2.15.5/waline.min.css" />
+  <script src="https://cdn.staticfile.org/waline/2.15.5/waline.min.js" defer></script>
   {{ end }}
 
-  <script src="https://cdn.staticfile.org/js-cookie/3.0.1/js.cookie.min.js"></script>
+  <script src="https://cdn.staticfile.org/js-cookie/3.0.5/js.cookie.min.js"></script>
   <!-- head custom -->
   {{- partial "extended_head.html" . }}
 
