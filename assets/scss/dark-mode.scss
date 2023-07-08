@@ -19,7 +19,7 @@ html.night {
   }
   
   img {
-    opacity: 0.8;
+    filter: brightness(0.8);
   }
 
   blockquote {
@@ -157,6 +157,12 @@ html.night {
             }
           }
 
+          .post-item-image-wrapper {
+            .post-item-image {
+              filter: brightness(0.8);
+            }
+          }
+
           @media screen and (max-width: $single-column-max-width) {
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
             background: $dark-mode-front-container-background;
@@ -209,9 +215,11 @@ html.night {
       }
       .single-column-header-title {
         color: $dark-mode-text;
+        font-family: $nav-font;
       }
       .single-column-header-subtitle {
         color: $dark-mode-text;
+        font-family: $nav-font;
       }
     }
   }
@@ -327,7 +335,7 @@ html.night {
 
   .viewer-canvas {
     img {
-      opacity: 1;
+      filter: brightness(1);
     }
   }
   // waline
