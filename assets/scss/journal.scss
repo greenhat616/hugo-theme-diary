@@ -1204,7 +1204,15 @@ mjx-container {
   }
   color: $dark-accent;
   background: rgba($color-accent, 0.05);
+
+  @media screen and (max-width: $single-column-max-width) {
+    margin-left: -$post-wrapper-padding-mobile;
+    margin-right: -$post-wrapper-padding-mobile;
+    padding: $post-wrapper-padding-mobile $post-wrapper-padding-mobile $post-wrapper-padding-x $post-wrapper-padding-mobile;
+  }
 }
+
+
 
 
 // Friendship
